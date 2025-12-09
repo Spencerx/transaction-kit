@@ -735,7 +735,11 @@ export class EtherspotTransactionKit implements IInitial {
         }
 
         if (!authorization) {
-          throw new Error('Authorization is required but was not created');
+          throw new Error(
+            'Failed to create authorization for EIP-6492 signature. ' +
+              'This may be due to network issues, bundler API problems, or account configuration. ' +
+              'Please check your network connection and bundler API key, or try again later.'
+          );
         }
 
         // Encode authorization for EIP-7702
